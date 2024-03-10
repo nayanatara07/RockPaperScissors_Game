@@ -28,4 +28,4 @@ while running:
     if not input("Play again? (y/n): ").lower() == "y":
         running = False
 
-print("Game Finished <3")
+print("Game Finished, Thanks for playing <3")
