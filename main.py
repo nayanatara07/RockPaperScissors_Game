@@ -18,9 +18,9 @@ while running:
     if player == computer:
         print("It's a tie!")
     elif player == "Rock" and computer == "Scissors":
-        print("You win!")
+        print("You win :)")
     elif player == "Paper" and computer == "Rock":
-        print("You win!")
+        print("You win :)")
     elif player == "Scissors" and computer == "Paper":
         print("You won :)")
     else:
