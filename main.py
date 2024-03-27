@@ -1,31 +1,38 @@
 import random
+import tkinter as tk
+from tkinter import messagebox
 
 options = ("Rock", "Paper", "Scissors")
-running = True
 
-while running:
-
-    player = None
+def play_game():
+    player = input_entry.get().capitalize()
     computer = random.choice(options)
 
-    while player not in options:
-        player = input("Enter a choice (Rock, Paper, Scissors): ")
-
-    print(f"Player: {player}")
-    print(f"Computer: {computer}")
+    result = f"Player: {player}\nComputer: {computer}\n"
 
     if player == computer:
-        print("It's a tie!")
-    elif player == "Rock" and computer == "Scissors":
-        print("You win :)")
-    elif player == "Paper" and computer == "Rock":
-        print("You win :)")
-    elif player == "Scissors" and computer == "Paper":
-        print("You won :)")
+        result += "It's a tie!"
+    elif (player == "Rock" and computer == "Scissors") or (player == "Paper" and computer == "Rock") or (player == "Scissors" and computer == "Paper"):
+        result += "You win :)"
     else:
-        print("You lost :(")
+        result += "You lost :("
 
-    if not input("Play again? (y/n): ").lower() == "y":
-        running = False
+    messagebox.showinfo("Result", result)
 
-print("Game Finished, Thanks for playing <3")
+root = tk.Tk()
+root.title("Rock Paper Scissors Game")
+
+frame = tk.Frame(root)
+frame.pack(padx=20, pady=20)
+
+label = tk.Label(frame, text="Enter a choice (Rock, Paper, Scissors):")
+label.pack()
+
+input_entry = tk.Entry(frame)
+input_entry.pack()
+
+start_button = tk.Button(frame, text="Start", command=play_game)
+start_button.pack()
+
+root.mainloop()
+
